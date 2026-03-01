@@ -1,4 +1,5 @@
 import {
+  Award,
   Building2,
   CheckCircle2,
   ChevronRight,
@@ -15,6 +16,7 @@ import {
   Menu,
   MessageCircle,
   Phone,
+  ShieldCheck,
   Star,
   Twitter,
   Wrench,
@@ -1193,10 +1195,6 @@ function ContactSection() {
    ========================================= */
 function Footer() {
   const year = new Date().getFullYear();
-  const hostname = encodeURIComponent(
-    typeof window !== "undefined" ? window.location.hostname : "",
-  );
-
   const quickLinks = [
     { label: "Home", href: "#hero" },
     { label: "About Us", href: "#about" },
@@ -1328,21 +1326,44 @@ function Footer() {
       <div className="h-px bg-gold/30" />
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-white/40 text-sm">
           © {year} Vornexa BuildCo. All Rights Reserved.
         </p>
-        <p className="text-white/30 text-xs">
-          Built with love using{" "}
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${hostname}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold/60 hover:text-gold transition-colors"
+        {/* Center — trust badges */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1.5 border border-gold/20 px-3 py-1 text-[10px] tracking-widest uppercase text-gold/60 font-medium">
+            <Award size={10} className="text-gold/60" />
+            ISO Certified
+          </div>
+          <div className="flex items-center gap-1.5 border border-gold/20 px-3 py-1 text-[10px] tracking-widest uppercase text-gold/60 font-medium">
+            <ShieldCheck size={10} className="text-gold/60" />
+            Licensed & Insured
+          </div>
+        </div>
+        {/* Right — policy links */}
+        <div className="flex items-center gap-4 text-xs text-white/30">
+          <button
+            type="button"
+            className="hover:text-gold/70 transition-colors duration-200 cursor-pointer"
           >
-            caffeine.ai
-          </a>
-        </p>
+            Privacy Policy
+          </button>
+          <span className="opacity-30">|</span>
+          <button
+            type="button"
+            className="hover:text-gold/70 transition-colors duration-200 cursor-pointer"
+          >
+            Terms of Use
+          </button>
+          <span className="opacity-30">|</span>
+          <button
+            type="button"
+            className="hover:text-gold/70 transition-colors duration-200 cursor-pointer"
+          >
+            Sitemap
+          </button>
+        </div>
       </div>
     </footer>
   );
